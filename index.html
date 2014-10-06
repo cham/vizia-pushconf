@@ -34,6 +34,8 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<link rel="stylesheet" href="css/viziatalk.css">
 	</head>
 
 	<body>
@@ -43,8 +45,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Vizia</h1>
-					<h3>Subtitle</h3>
+					<h1>Vizia Tech</h1>
+					<h3>A brief technical tour</h3>
 					<p>
 						<small><a href="http://dan.nea.me">Julius Dietz</a> &amp; <a href="http://dan.nea.me">Dan Neame</a></small>
 					</p>
@@ -52,36 +54,89 @@
 
 				<section>
 					<section>
-						<h2>Web app</h2>
-						<p>
-							js, html5, css3, svg icons
+						<h2>It's just a web app</h2>
+						<p class="fragment">
+							Uses standard web technology
 						</p>
+						<ul>
+							<li class="fragment iconlist"><img src="img/js.png"></li>
+							<li class="fragment iconlist"><img src="img/html5.png"></li>
+							<li class="fragment iconlist"><img src="img/css3.png"></li>
+							<li class="fragment iconlist"><img src="img/svg.png"></li>
+						</ul>
 					</section>
 					<section>
 						<h2>Browser support</h2>
-						<p>
-							chrome, ff, safari, ie11
+						<p class="fragment">
+							Cutting edge tech
+						</p>
+						<p class="fragment">
+							But not bleeding edge
+						</p>
+						<ul>
+							<li class="fragment iconlist"><img src="img/chrome.png"></li>
+							<li class="fragment iconlist"><img src="img/firefox.png"></li>
+							<li class="fragment iconlist"><img src="img/safari.png"></li>
+							<li class="fragment iconlist"><img src="img/ie11.png"></li>
+						</ul>
+						<p class="fragment">
+							"A browser"
 						</p>
 					</section>
 					<section>
 						<h2>Device support</h2>
-						<p>
-							4K to 4 inch
+						<p class="fragment">
+							"4 inch to 4K"
+						</p>
+						<ul>
+							<li class="fragment iconlist">iPhone icon</li>
+							<li class="fragment iconlist">Tablet icon</li>
+							<li class="fragment iconlist">Desktop icon</li>
+							<li class="fragment iconlist">4K icon</li>
+						</ul>
+						<p class="fragment">
+							Most people have a wall display with roughly 6 screens
+						</p>
+					</section>
+					<section>
+						<h2>Resolution</h2>
+						<p class="fragment">
+							Multiple screen sizes
+						</p>
+						<p class="fragment">
+							Different orientations
+						</p>
+						<p class="fragment">
+							Retina / non-retina
+						</p>
+						<p class="fragment">
+							Breakpoints not workable
+						</p>
+						<p class="fragment">
+							100% Fluid, 1 breakpoint if necessary
 						</p>
 					</section>
 					<section data-background-color="#000">
 						<h2>Fluid layout</h2>
 						<video data-autoplay src="video/resizing.mov"></video>
 					</section>
+					<section data-background-color="#000">
+						<h2>Flexible window management</h2>
+						<video data-autoplay src="video/multiple-screens.mov"></video>
+					</section>
 				</section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Scenes</h2>
-						<p>
+						<h2>Building the Scenes</h2>
+						<p class="fragment">
 							Multiple customisable visualisations
 						</p>
+						<ol>
+							<li class="fragment">The Globe</li>
+							<li class="fragment">Tiles</li>
+							<li class="fragment">Sentiment Barometer</li>
+						</ol>
 					</section>
 					<section data-background-color="#000">
 						<h2>The Globe</h2>
@@ -100,15 +155,50 @@
 				<section>
 					<section>
 						<h2>Technology Stack</h2>
-						<p>
-							Backbone, Node, BW API
+						<p class="fragment">
+							From front to back:
 						</p>
-						<p>Diagram</p>
+						<ol>
+							<li class="fragment">D3, Canvas, HTML5 / CSS3</li>
+							<li class="fragment">Backbone.js</li>
+							<li class="fragment">Node.js</li>
+							<li class="fragment">Brandwatch API (Java)</li>
+						</ol>
 					</section>
 					<section>
-						<h2>Technology Stack</h2>
-						<p>
-							Node proxy, caching
+						<h2>Front end</h2>
+						<p class="fragment">
+							Runs on walls and in kiosks
+						</p>
+						<p class="fragment">
+							Needs to stay running for up to 1 year
+						</p>
+						<p class="fragment">
+							We spent a lot of time profiling memory!
+						</p>
+						<p class="fragment">
+							Settled on Backbone and vanilla JS, very light
+						</p>
+					</section>
+					<section>
+						<h2>Back end</h2>
+						<p class="fragment">
+							Acts as a proxy
+						</p>
+						<p class="fragment">
+							Very little transformation of data
+						</p>
+						<p class="fragment">
+							Some Vizia-specific endpoints
+						</p>
+						<p class="fragment">
+							Node.js application
+						</p>
+						<p class="fragment">
+							Stateless, so it can be clustered
+						</p>
+						<p class="fragment">
+							Redis for session management and caching
 						</p>
 					</section>
 				</section>
@@ -116,8 +206,17 @@
 				<section>
 					<section>
 						<h2>Push technology</h2>
-						<p>
-							websockets duplex, sse one direction only
+						<p class="fragment">
+							Originally, <i>everything</i> went through websockets
+						</p>
+						<p class="fragment">
+							We use socket.io, but good argument to use SSE
+						</p>
+						<p class="fragment">
+							Websockets don't play nicely with older / strict firewalls
+						</p>
+						<p class="fragment">
+							Polling for data, push for anything else
 						</p>
 					</section>
 					<section data-background-color="#000">
@@ -130,6 +229,37 @@
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<h2>Web platform = &lt;3</h2>
+						<p class="fragment">
+							Any device, anywhere
+						</p>
+						<p class="fragment">
+							Great for updates
+						</p>
+						<p class="fragment">
+							Speedy development
+						</p>
+						<p class="fragment">
+							Come grab us afterwards!
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h1>Thanks!</h1>
+					<h3></h3>
+					<p>
+						<small><a href="http://dan.nea.me">Julius Dietz</a> &amp; <a href="http://dan.nea.me">Dan Neame</a></small>
+					</p>
+					<p>
+						<small>Language and browser icons from Wikipedia</small>
+					</p>
+					<p>
+						<img src="img/pinkie.gif" style="border:0">
+					</p>
+				</section>
 			</div>
 
 		</div>

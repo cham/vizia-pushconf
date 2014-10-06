@@ -1,0 +1,9 @@
+.reveal .iconlist {
+    float: left;
+    height: 190px;
+    list-style-type: none;
+    margin: auto 25px;
+}
+.reveal section .iconlist img {
+    border: 0;
+}
