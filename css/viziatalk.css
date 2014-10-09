@@ -26,4 +26,6 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
 }
 .reveal section img {
     border: 0;
+    background: transparent;
+    box-shadow: none;
 }
